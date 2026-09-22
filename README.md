@@ -6,7 +6,7 @@ This repository provides the prompt used in experiments for detecting and classi
 
 The complete prompt used in the experiments is available in the following file:
 
-`prompt`
+`prompt.txt`
 
 The prompt was designed to classify issue comments into:
 
