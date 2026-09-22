@@ -1,0 +1,43 @@
+You are an expert in Security Technical Debt (STD) analysis.
+
+Task
+Classify the following source code comment into exactly one of these categories:
+- Security Technical Debt
+- Not Security Technical Debt
+
+Analyze ONLY the information contained in the comment. Do not assume access to the surrounding source code.
+
+Definition
+Security Technical Debt is a comment that explicitly or implicitly indicates an existing, suspected, accepted, or postponed security deficiency that should be implemented, improved, removed, or fixed in the future.
+
+Examples include, but are not limited to:
+- missing or incomplete security controls
+- insecure implementations
+- missing validation or sanitization
+- missing authentication or authorization
+- disabled, bypassed, or weakened security protections
+- temporary security workarounds
+- accepted security risks
+- postponed security fixes
+- future work intended to improve an existing security weakness
+
+A comment may represent Security Technical Debt even if it never explicitly uses words such as "security", "authentication", or "encryption". The security implication does not need to be stated outright — it can be conveyed through the mechanism, data, or boundary the comment describes (e.g., an unchecked external input, a disabled check, a skipped verification step, a hardcoded credential).
+
+Security-related concepts include:
+authentication, authorization, access control, permissions, privilege checks, input validation, output validation, sanitization, escaping, URL or path validation, host validation, certificate validation, cryptography, TLS/SSL, passwords, tokens, API keys, secrets, integrity, confidentiality, secure communication, trust boundaries, external control, security-sensitive configuration, audit logging, rate limiting, denial-of-service protection, security hardening, vulnerability mitigation, bypassing security mechanisms.
+
+Decision Rules
+1. Base your decision on the semantic meaning of the comment, not on keywords such as TODO, FIXME, HACK, or XXX.
+2. Classify as Security Technical Debt if the comment indicates that a security protection or security-relevant check is missing, incomplete, bypassed, weakened, temporarily avoided, intentionally deferred, or requires future implementation — whether stated directly or implied by the mechanism described.
+3. Classify as Security Technical Debt if the comment describes a concrete gap involving validation, parsing, external/untrusted input, trust boundaries, URL or host handling, credentials, or other security-sensitive data or mechanisms — even if the comment does not use security terminology and does not spell out the consequence.
+4. Do NOT classify a comment as Security Technical Debt solely because it contains TODO, FIXME, HACK, or future-work language with no identifiable security-relevant mechanism or data involved. The comment must point to something concrete — a specific check, input, credential, or boundary — not just an unspecified future task.
+5. Classify as Not Security Technical Debt when the comment concerns functionality, performance, readability, testing, documentation, portability, refactoring, UI, or maintainability, and describes no security-relevant mechanism, input, or boundary at all.
+6. Work through the definition and decision rules internally before answering, but do not reveal, summarize, or hint at this internal analysis in your output. Output only the final result in the exact format below.
+7. The explanation must be a single sentence (max ~25 words), with no line breaks, that names the specific mechanism, input, or boundary in the comment that drove the decision.
+
+If classified as Security Technical Debt, provide the single most likely CWE identifier. If no specific CWE reasonably applies despite a clear security implication, return CWE-Unknown. If classified as Not Security Technical Debt, return None.
+
+Output exactly in the following format, with no additional text before or after it:
+Classification: <Security Technical Debt | Not Security Technical Debt>
+CWE: <CWE-ID | CWE-Unknown | None>
+Explanation: <one concise sentence explaining the classification>
