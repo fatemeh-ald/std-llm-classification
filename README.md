@@ -22,7 +22,3 @@ The prompt was used with multiple Large Language Models, including:
 - Claude
 - GPT
 - DeepSeek
-
-## Reproducibility
-
-The prompt is provided to document the instructions used in the experiments and to support reproducibility of the LLM-based classification process.
