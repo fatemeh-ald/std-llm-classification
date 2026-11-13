@@ -73,7 +73,3 @@ invocation.
   experiment wrapped it as `Comment:\n<text>\n`; the command above reproduces that.
 - Model outputs are validated against the required three-line format; malformed outputs
   are retried.
-
-## License
-
-<!-- TODO: add a license (e.g. MIT) and citation information. -->
