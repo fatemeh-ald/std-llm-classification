@@ -28,13 +28,6 @@ cp .env.example .env        # then set AVALAI_API_KEY
 All models are called through the AvalAI gateway (`https://api.avalai.ir`). Use
 `--base-url` to point to another OpenAI/Anthropic-compatible endpoint.
 
-## Data
-
-The input is an Excel file with a `text` column containing the comment to classify.
-Put it at `data/SSATD_COMMENTS.xlsx` (or pass `--input`). <!-- TODO: describe data
-provenance, sampling, annotation protocol and inter-annotator agreement, with a link
-to the source dataset. -->
-
 ## Reproducing the experiments
 
 | Model | Provider flag | Command |
@@ -73,7 +66,3 @@ invocation.
   experiment wrapped it as `Comment:\n<text>\n`; the command above reproduces that.
 - Model outputs are validated against the required three-line format; malformed outputs
   are retried.
-
-## License
-
-<!-- TODO: add a license (e.g. MIT) and citation information. -->
