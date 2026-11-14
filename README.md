@@ -54,7 +54,6 @@ Interrupted runs resume automatically from `outputs/<label>_results.xlsx`.
 | Temperature / top-p | Not set — provider defaults (Claude Sonnet 5 does not accept sampling parameters) |
 | Max output tokens | Provider default (Claude: 4000) |
 | Access date | September 2026 |
-| Model versions | deepseek-v3.1, gpt-4.1, claude-sonnet-5 (via AvalAI) |
 
 Every run writes `outputs/<label>_metadata.json` with the model, endpoint, parameters,
 prompt hash, and start/finish timestamps (UTC).
