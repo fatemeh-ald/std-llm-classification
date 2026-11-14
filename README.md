@@ -28,6 +28,12 @@ cp .env.example .env        # then set AVALAI_API_KEY
 All models are called through the AvalAI gateway (`https://api.avalai.ir`). Use
 `--base-url` to point to another OpenAI/Anthropic-compatible endpoint.
 
+## Data
+
+The evaluation uses 234 developer-text instances (code comments and issue reports) selected from the SSATD dataset published by Díaz Ferreyra et al. (2024). Ground-truth STD labels and CWE annotations are taken from that dataset. Models receive only the textual content of each instance (no surrounding source code).
+
+Place the input Excel file (with a `text` column) at `data/SSATD_COMMENTS.xlsx`, or pass a custom path with `--input`.
+
 ## Reproducing the experiments
 
 | Model | Provider flag | Command |
@@ -47,8 +53,8 @@ Interrupted runs resume automatically from `outputs/<label>_results.xlsx`.
 | Prompt | `prompts/system_prompt.txt` (SHA-256 recorded in each metadata file) |
 | Temperature / top-p | Not set — provider defaults (Claude Sonnet 5 does not accept sampling parameters) |
 | Max output tokens | Provider default (Claude: 4000) |
-| Access date | <!-- TODO: fill in, e.g. 2026-MM-DD --> |
-| Model versions | <!-- TODO: exact snapshot IDs reported by the gateway --> |
+| Access date | September 2026 |
+| Model versions | deepseek-v3.1, gpt-4.1, claude-sonnet-5 (via AvalAI) |
 
 Every run writes `outputs/<label>_metadata.json` with the model, endpoint, parameters,
 prompt hash, and start/finish timestamps (UTC).
